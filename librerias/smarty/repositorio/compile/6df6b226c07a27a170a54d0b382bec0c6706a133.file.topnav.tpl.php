@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2017-09-25 15:50:06
+<?php /* Smarty version Smarty-3.1.11, created on 2017-09-26 15:33:36
          compiled from "templates/plantillas/layout/topnav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:109831760559c57085c02372-36865342%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6df6b226c07a27a170a54d0b382bec0c6706a133' => 
     array (
       0 => 'templates/plantillas/layout/topnav.tpl',
-      1 => 1506372604,
+      1 => 1506458015,
       2 => 'file',
     ),
   ),
@@ -94,6 +94,7 @@ img/logo_transparencia.png" style="width: 105px; margin-top: 7px;"/>
 						
 						<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 							<ul class="nav navbar-nav">
+								<li><a href="categorias" title="Categorías de usuario">Categorías</a></li>
 								<li><a href="usuarios" title="Usuarios del sistema">Usuarios</a></li>
 								<li><a href="juntas" title="Administración de juntas">Juntas</a></li>
 								<li><a href="logout" title="Salir del sistema"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>

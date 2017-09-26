@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2017-09-25 15:45:18
+<?php /* Smarty version Smarty-3.1.11, created on 2017-09-26 15:15:31
          compiled from "templates/plantillas/modulos/juntas/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:166677355359c96a28d05d39-72304450%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0d15b436a0a46e5d2b4ebff03b6f2060647aec49' => 
     array (
       0 => 'templates/plantillas/modulos/juntas/panel.tpl',
-      1 => 1506372317,
+      1 => 1506456896,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.11',
   'unifunc' => 'content_59c96a28d608c4_58714315',
+  'variables' => 
+  array (
+    'PAGE' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_59c96a28d608c4_58714315')) {function content_59c96a28d608c4_58714315($_smarty_tpl) {?><div class="row">
@@ -32,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div class="tab-content">
 	<div id="listas" class="tab-pane fade in active">
-		<div id="dvLista">
+		<div id="dvListaJuntas">
 			
 		</div>
 	</div>
@@ -71,4 +75,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 		</form>
 	</div>
-</div><?php }} ?>
+</div>
+
+<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['PAGE']->value['rutaModulos']).("modulos/juntas/winListaParticipantes.tpl"), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php }} ?>

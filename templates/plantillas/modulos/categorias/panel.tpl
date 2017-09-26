@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Administración de juntas</h1>
+		<h1 class="page-header">Administración de categorías de usuario</h1>
 	</div>
 </div>
 
@@ -11,7 +11,7 @@
 
 <div class="tab-content">
 	<div id="listas" class="tab-pane fade in active">
-		<div id="dvListaJuntas">
+		<div id="dvLista">
 			
 		</div>
 	</div>
@@ -26,21 +26,6 @@
 							<input class="form-control" id="txtNombre" name="txtNombre">
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="txtNombre" class="col-sm-2 control-label">Semilla</label>
-						<div class="col-sm-3">
-							<input class="form-control" id="txtSemilla" name="txtSemilla">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="txtInicio" class="col-sm-2 control-label">Duración</label>
-						<div class="col-sm-3">
-							<input class="form-control" id="txtInicio" name="txtInicio" placeholder="Inicia" readonly="true">
-						</div>
-						<div class="col-sm-3">
-							<input class="form-control" id="txtFin" name="txtFin" placeholder="Termina" readonly="true">
-						</div>
-					</div>
 				</div>
 				<div class="box-footer">
 					<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
@@ -51,5 +36,3 @@
 		</form>
 	</div>
 </div>
-
-{include file=$PAGE.rutaModulos|cat:"modulos/juntas/winListaParticipantes.tpl"}

@@ -22,4 +22,17 @@ $conf['cjuntas'] = array(
 	'descripcion' => 'Controlador de juntas',
 	'seguridad' => true,
 	'capa' => LAYOUT_JSON);
+	
+$conf['listaParticipantes'] = array(
+	'controlador' => 'participantes.php',
+	'vista' => 'juntas/listaParticipantes.tpl',
+	'descripcion' => 'Lista de participantes de una junta',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['cparticipantes'] = array(
+	'controlador' => 'participantes.php',
+	'descripcion' => 'Controlador de participantes de las juntas',
+	'seguridad' => true,
+	'capa' => LAYOUT_JSON);
 ?>

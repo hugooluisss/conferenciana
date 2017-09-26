@@ -1,6 +1,4 @@
 $(document).ready(function(){
-	$("#txtInicio").datepicker();
-	$("#txtFin").datepicker();
 	getLista();
 	
 	$("#panelTabs li a[href=#add]").click(function(){
@@ -16,20 +14,14 @@ $(document).ready(function(){
 	$("#frmAdd").validate({
 		debug: true,
 		rules: {
-			txtInicio: "required",
-			txtNombre: "required",
-			txtFin: "required",
-			txtSemilla: "required"
+			txtNombre: "required"
 		},
 		wrapper: 'span', 
 		submitHandler: function(form){
-			var obj = new TJunta;
+			var obj = new TCategoria;
 			obj.add({
 				id: $("#id").val(), 
-				nombre: $("#txtNombre").val(), 
-				semilla: $("#txtSemilla").val(),
-				inicio: $("#txtInicio").val(),
-				fin: $("#txtFin").val(),
+				nombre: $("#txtNombre").val(),
 				fn: {
 					after: function(datos){
 						if (datos.band){
@@ -46,12 +38,12 @@ $(document).ready(function(){
     });
 		
 	function getLista(){
-		$.get("listaJuntas", function( data ) {
-			$("#dvListaJuntas").html(data);
+		$.get("listaCategorias", function( data ) {
+			$("#dvLista").html(data);
 			
 			$("[action=eliminar]").click(function(){
 				if(confirm("¿Seguro?")){
-					var obj = new TJunta;
+					var obj = new TCategoria;
 					obj.del({
 						id: $(this).attr("identificador"), 
 						fn: {
@@ -66,17 +58,10 @@ $(document).ready(function(){
 			$("[action=modificar]").click(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				
-				$("#id").val(el.idJunta);
+				$("#id").val(el.idCategoria);
 				$("#txtNombre").val(el.nombre);
-				$("#txtSemilla").val(el.semilla);
-				$("#txtInicio").val(el.inicio);
-				$("#txtFin").val(el.fin);
 				
 				$('#panelTabs a[href="#add"]').tab('show');
-			});
-			
-			$("[action=invitados]").click(function(){
-				$("#winListaParticipantes").attr("datos", $(this).attr("datos"));
 			});
 			
 			$("#tblDatos").DataTable({
@@ -90,30 +75,4 @@ $(document).ready(function(){
 			});
 		});
 	}
-	
-	
-	$("#winListaParticipantes").on('shown.bs.modal', function(e){
-		var junta = jQuery.parseJSON($(this).attr("datos"));
-		ventana = $("#winListaParticipantes");
-		
-		$.each(junta, function(campo, valor){
-			$("[campo=" + campo + "]").text(valor);
-		});
-		
-		$.post("listaParticipantes", {
-			"id": junta.idJunta
-		}, function(resp){
-			ventana.find(".modal-body").html(resp);
-			
-			$("#tblParticipantes").DataTable({
-				"responsive": true,
-				"language": espaniol,
-				"paging": true,
-				"lengthChange": false,
-				"ordering": true,
-				"info": true,
-				"autoWidth": false
-			});
-		});
-	});
 });

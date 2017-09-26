@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2017-09-25 15:51:38
+<?php /* Smarty version Smarty-3.1.11, created on 2017-09-26 14:58:30
          compiled from "templates/plantillas/modulos/juntas/lista.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17550379059c96a294c2e26-22081932%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '18d20db13ffb8d3bb5c47b0123e2a6e7e7c1688f' => 
     array (
       0 => 'templates/plantillas/modulos/juntas/lista.tpl',
-      1 => 1506372693,
+      1 => 1506455738,
       2 => 'file',
     ),
   ),
@@ -49,8 +49,9 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['nombre'];?>
 </td>
 						<td class="text-right">
-							<button type="button" class="btn btn-success btn-xs" action="Invitados" title="Invitados" identificador="<?php echo $_smarty_tpl->tpl_vars['row']->value['idJunta'];?>
-"><i class="fa fa-list-alt"></i></button>
+							<button type="button" class="btn btn-success btn-xs" action="invitados" title="Invitados" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
+' identificador="<?php echo $_smarty_tpl->tpl_vars['row']->value['idJunta'];?>
+" data-toggle="modal" data-target="#winListaParticipantes"><i class="fa fa-list-alt"></i></button>
 							<button type="button" class="btn btn-primary btn-xs" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
 '><i class="fa fa-edit"></i></button>
 							<button type="button" class="btn btn-danger btn-xs" action="eliminar" title="Eliminar" identificador="<?php echo $_smarty_tpl->tpl_vars['row']->value['idJunta'];?>

@@ -50,6 +50,7 @@
 						
 						<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 							<ul class="nav navbar-nav">
+								<li><a href="categorias" title="Categorías de usuario">Categorías</a></li>
 								<li><a href="usuarios" title="Usuarios del sistema">Usuarios</a></li>
 								<li><a href="juntas" title="Administración de juntas">Juntas</a></li>
 								<li><a href="logout" title="Salir del sistema"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>

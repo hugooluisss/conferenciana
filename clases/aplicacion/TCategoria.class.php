@@ -1,17 +1,15 @@
 <?php
 /**
-* TJunta
+* Son las categorías de los usuarios
 * Juntas
 * @package aplicacion
 * @autor Hugo Santiago hugooluisss@gmail.com
 **/
 
-class TJunta{
-	private $idJunta;
+class TCategoria{
+	private $idCategoria;
 	private $nombre;
-	private $semilla;
-	private $inicia;
-	private $fin;
+	private $visible;
 	
 	/**
 	* Constructor de la clase
@@ -20,7 +18,7 @@ class TJunta{
 	* @access public
 	* @param int $id identificador del objeto
 	*/
-	public function TJunta($id = ''){
+	public function TCategoria($id = ''){
 		$this->setId($id);		
 		return true;
 	}
@@ -38,7 +36,7 @@ class TJunta{
 		if ($id == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->query("select * from junta a where idJunta = ".$id);
+		$rs = $db->query("select * from categoria a where idCategoria = ".$id);
 		
 		foreach($rs->fetch_assoc() as $field => $val){
 			switch($field){
@@ -59,7 +57,7 @@ class TJunta{
 	*/
 	
 	public function getId(){
-		return $this->idJunta;
+		return $this->idCategoria;
 	}
 	
 	/**
@@ -89,84 +87,6 @@ class TJunta{
 	}
 	
 	/**
-	* Establece semilla
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setSemilla($val = ''){
-		$this->semilla = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna semilla
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getSemilla(){
-		return $this->semilla;
-	}
-	
-	/**
-	* Establece el inicio
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setInicio($val = ''){
-		$this->inicio = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna el inicio
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getInicio(){
-		return $this->inicio == ''?date("Y-m-d"):$this->inicio;
-	}
-	
-	/**
-	* Establece el fin
-	*
-	* @autor Hugo
-	* @access public
-	* @param string $val Valor a asignar
-	* @return boolean True si se realizó sin problemas
-	*/
-	
-	public function setFIn($val = ''){
-		$this->fin = $val;
-		return true;
-	}
-	
-	/**
-	* Retorna el fin
-	*
-	* @autor Hugo
-	* @access public
-	* @return string Texto
-	*/
-	
-	public function getFin(){
-		return $this->fin == ''?date("Y-m-d"):$this->fin;
-	}
-	
-	/**
 	* Guarda los datos en la base de datos, si no existe un identificador entonces crea el objeto
 	*
 	* @autor Hugo
@@ -178,22 +98,19 @@ class TJunta{
 		$db = TBase::conectaDB();
 		
 		if ($this->getId() == ''){
-			$rs = $db->query("INSERT INTO junta(visible) VALUES(true);");
+			$rs = $db->query("INSERT INTO categoria(visible) VALUES(true);");
 			if (!$rs) return false;
 				
-			$this->idJunta = $db->insert_id;
+			$this->idCategoria = $db->insert_id;
 		}		
 		
 		if ($this->getId() == '')
 			return false;
 		
-		$sql = "UPDATE junta
+		$sql = "UPDATE categoria
 			SET
-				nombre = '".$this->getNombre()."',
-				inicio = '".$this->getInicio()."',
-				fin = '".$this->getFin()."',
-				semilla = '".$this->getSemilla()."'
-			WHERE idJunta = ".$this->getId();
+				nombre = '".$this->getNombre()."'
+			WHERE idCategoria = ".$this->getId();
 			
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 			
@@ -212,7 +129,7 @@ class TJunta{
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		$sql = "update junta set visible = false where idJunta = ".$this->getId();
+		$sql = "update categoria set visible = false where idCategoria = ".$this->getId();
 		$rs = $db->query($sql) or errorMySQL($db, $sql);
 		
 		return $rs?true:false;

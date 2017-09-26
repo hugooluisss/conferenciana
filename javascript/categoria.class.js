@@ -1,15 +1,12 @@
-TJunta = function(){
+TCategoria = function(){
 	var self = this;
 	
 	this.add = function(datos){
 		if (datos.fn.before !== undefined) datos.fn.before();
 		
-		$.post('cjuntas', {
+		$.post('ccategorias', {
 				"id": datos.id,
 				"nombre": datos.nombre,
-				"semilla": datos.semilla, 
-				"inicio": datos.inicio,
-				"fin": datos.fin,
 				"action": "add"
 			}, function(data){
 				if (data.band == 'false')
@@ -23,8 +20,9 @@ TJunta = function(){
 	this.del = function(datos){
 		if (datos.fn.before !== undefined) datos.fn.before();
 		
-		$.post('cjuntas', {
+		$.post('ccategorias', {
 			"id": datos.id,
+			"action": "del"
 		}, function(data){
 			if (datos.fn.after != undefined)
 				datos.fn.after(data);
